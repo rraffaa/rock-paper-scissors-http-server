@@ -1,0 +1,22 @@
+{
+  "name": "rock-paper-scissors-http-server",
+  "version": "1.0.0",
+  "description": "This project uses Node.js to create an HTTP server for an online Rock-Paper-Scissors game, where users play against the server. It handles GET and POST requests, serving HTML files and processing game moves.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rraffaa/rock-paper-scissors-http-server.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Rafaella Lassance Lima Costa",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/rraffaa/rock-paper-scissors-http-server/issues"
+  },
+  "homepage": "https://github.com/rraffaa/rock-paper-scissors-http-server#readme"
+}

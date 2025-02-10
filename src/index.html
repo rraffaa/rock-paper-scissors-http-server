@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-Paper-Scissors</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f7fc; /* Um tom suave de azul claro */
+      color: #333;
+    }
+
+    h1 {
+      color: #020202; /* Cor vibrante e acolhedora para o título */
+      font-size: 2.5em;
+      margin-top: 50px;
+    }
+
+    h2 {
+      color: #ff8a65; /* Complemento ao título, mantendo uma paleta harmoniosa */
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 18px;
+      margin: 15px;
+      cursor: pointer;
+      border: 2px solid #ff6f61;
+      background-color: #fff;
+      color: #ff6f61;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff6f61;
+      color: #fff;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #479649; 
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #e0f7fa; 
+    }
+
+    #result.hidden {
+      display: none;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">Welcome Stranger</h1>
+    <h2>Test your fate with a game of Rock-Paper-Scissors!</h2>
+    <div>
+      <button onclick="playGame('rock')">Rock</button>
+      <button onclick="playGame('paper')">Paper</button>
+      <button onclick="playGame('scissors')">Scissors</button>
+    </div>
+
+    <p id="result" class="hidden"></p>
+  </div>
+
+  <script>
+    const searchParams = new URLSearchParams(location.search);
+    const name = searchParams.get('name');
+
+    if (name) {
+      document.getElementById('title').innerText = `Welcome ${name}`;
+    }
+
+    function playGame(option) {
+      fetch('/', { method: 'POST', body: option })
+        .then(response => response.text())
+        .then(text => {
+          const resultElement = document.getElementById('result');
+          resultElement.innerText = text;
+          resultElement.classList.remove('hidden');
+        });
+    }
+  </script>
+</body>
+</html>
